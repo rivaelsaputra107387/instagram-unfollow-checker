@@ -23,7 +23,6 @@
             min-height: 100vh;
         }
 
-        /* Ambient glow background */
         .bg-glow {
             position: fixed;
             inset: 0;
@@ -39,7 +38,6 @@
             z-index: 1;
         }
 
-        /* Logo */
         .brand-icon {
             width: 56px;
             height: 56px;
@@ -65,7 +63,6 @@
             background-clip: text;
         }
 
-        /* Cards */
         .card {
             background: #161b22;
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -117,11 +114,11 @@
             margin-top: 4px;
         }
 
-        /* Upload areas */
+        /* Upload */
         .upload-box {
             border: 2px dashed rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 22px;
+            border-radius: 14px;
+            padding: 40px 20px;
             text-align: center;
             position: relative;
             cursor: pointer;
@@ -146,25 +143,35 @@
             cursor: pointer;
         }
 
+        .upload-icon {
+            font-size: 2.5rem;
+            color: #8b949e;
+            margin-bottom: 12px;
+        }
+
+        .upload-box.selected .upload-icon {
+            color: #3fb950;
+        }
+
         .file-name {
             display: none;
             color: #3fb950;
             font-weight: 500;
             font-size: 0.85rem;
-            margin-top: 6px;
+            margin-top: 8px;
         }
 
         .upload-box.selected .file-name {
             display: block;
         }
 
-        /* Gradient button */
+        /* Button */
         .btn-ig {
             background: var(--ig-gradient);
             border: none;
             color: #fff;
             font-weight: 600;
-            padding: 12px 24px;
+            padding: 14px 24px;
             border-radius: 12px;
             font-size: 0.95rem;
             transition: all 0.25s ease;
@@ -177,7 +184,7 @@
             color: #fff;
         }
 
-        /* Results list */
+        /* Results */
         .results-scroll {
             max-height: 520px;
             overflow-y: auto;
@@ -238,7 +245,7 @@
             opacity: 1;
         }
 
-        /* Alert custom */
+        /* Alert */
         .alert-ig {
             background: rgba(239, 68, 68, 0.08);
             border: 1px solid rgba(239, 68, 68, 0.2);
@@ -275,6 +282,21 @@
             font-size: 0.9rem;
         }
 
+        /* How-to steps */
+        .step-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: var(--ig-gradient);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
         @media (max-width: 576px) {
             .stat-value {
                 font-size: 1.5rem;
@@ -283,13 +305,16 @@
             .user-link {
                 opacity: 1;
             }
+
+            .upload-box {
+                padding: 28px 16px;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="bg-glow"></div>
-
     <div class="main-wrapper">
         <div class="container py-5" style="max-width: 740px;">
 
@@ -299,8 +324,8 @@
                     <i class="bi bi-instagram"></i>
                 </div>
                 <h1 class="brand-title mb-2">Unfollowers Tracker</h1>
-                <p class="text-secondary mb-0">Upload data export Instagram untuk melihat siapa yang tidak follow back.
-                </p>
+                <p class="text-secondary mb-0">Upload file ZIP export Instagram untuk melihat siapa yang tidak follow
+                    back.</p>
             </div>
 
             <!-- Error Alert -->
@@ -314,39 +339,49 @@
             <!-- Upload Card -->
             <div class="card mb-4">
                 <div class="card-body p-4">
-                    <h5 class="card-title fw-semibold mb-4">
-                        <i class="bi bi-cloud-arrow-up me-2 text-secondary"></i>Upload File JSON
+                    <h5 class="card-title fw-semibold mb-3">
+                        <i class="bi bi-file-earmark-zip me-2 text-secondary"></i>Upload File ZIP
                     </h5>
+
                     <form method="POST" enctype="multipart/form-data">
-
-                        <!-- Followers upload -->
-                        <label class="form-label text-secondary small fw-medium">1. File Followers</label>
-                        <div class="upload-box mb-3" id="box-followers">
-                            <input type="file" name="followers" accept=".json" required
-                                onchange="onFileChange(this,'box-followers','fname-followers')">
+                        <div class="upload-box mb-4" id="box-zip">
+                            <input type="file" name="zipfile" accept=".zip" required
+                                onchange="onFileChange(this,'box-zip','fname-zip')">
+                            <div class="upload-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
                             <div class="text-secondary small">
-                                <i class="bi bi-file-earmark-arrow-up me-1"></i>
-                                Klik untuk memilih <strong class="text-light">followers_1.json</strong>
+                                Klik atau drag file <strong class="text-light">.zip</strong> export Instagram ke sini
                             </div>
-                            <div class="file-name" id="fname-followers"></div>
-                        </div>
-
-                        <!-- Following upload -->
-                        <label class="form-label text-secondary small fw-medium">2. File Following</label>
-                        <div class="upload-box mb-4" id="box-following">
-                            <input type="file" name="following" accept=".json" required
-                                onchange="onFileChange(this,'box-following','fname-following')">
-                            <div class="text-secondary small">
-                                <i class="bi bi-file-earmark-arrow-up me-1"></i>
-                                Klik untuk memilih <strong class="text-light">following.json</strong>
-                            </div>
-                            <div class="file-name" id="fname-following"></div>
+                            <div class="file-name" id="fname-zip"></div>
                         </div>
 
                         <button type="submit" class="btn btn-ig w-100">
                             <i class="bi bi-search me-2"></i>Analisis Sekarang
                         </button>
                     </form>
+
+                    <!-- Panduan singkat -->
+                    <div class="mt-4 pt-3 border-top border-secondary border-opacity-25">
+                        <p class="text-secondary small fw-medium mb-2">
+                            <i class="bi bi-question-circle me-1"></i>Cara mendapatkan file ZIP:
+                        </p>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-start gap-2">
+                                <span class="step-number">1</span>
+                                <span class="text-secondary small">Buka Instagram → Settings → Your Activity → Download
+                                    Your Information</span>
+                            </div>
+                            <div class="d-flex align-items-start gap-2">
+                                <span class="step-number">2</span>
+                                <span class="text-secondary small">Pilih format <strong
+                                        class="text-light">JSON</strong>, lalu request download</span>
+                            </div>
+                            <div class="d-flex align-items-start gap-2">
+                                <span class="step-number">3</span>
+                                <span class="text-secondary small">Download file ZIP dari email Instagram, lalu upload
+                                    di sini</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -384,14 +419,12 @@
                     </div>
 
                     {% if results %}
-                    <!-- Search -->
                     <div class="search-wrapper mb-3">
                         <i class="bi bi-search"></i>
                         <input type="text" class="form-control search-input" id="searchInput"
                             placeholder="Cari username..." onkeyup="filterList()">
                     </div>
 
-                    <!-- Scrollable List -->
                     <div class="results-scroll" id="resultsList">
                         {% for username in results %}
                         <div class="user-row">
@@ -418,7 +451,6 @@
             </div>
             {% endif %}
 
-            <!-- Footer -->
             <p class="text-center text-secondary small mt-4 mb-0">
                 Instagram Unfollowers Tracker &bull; Flask + Bootstrap &bull; ❤️
             </p>
@@ -428,8 +460,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function onFileChange(input, boxId, nameId) {
-            const box = document.getElementById(boxId);
-            const nameEl = document.getElementById(nameId);
+            var box = document.getElementById(boxId);
+            var nameEl = document.getElementById(nameId);
             if (input.files.length) {
                 box.classList.add('selected');
                 nameEl.textContent = '✅ ' + input.files[0].name;
@@ -440,11 +472,12 @@
         }
 
         function filterList() {
-            const q = document.getElementById('searchInput').value.toLowerCase();
-            document.querySelectorAll('#resultsList .user-row').forEach(row => {
-                const name = row.querySelector('.username').textContent.toLowerCase();
-                row.style.display = name.includes(q) ? '' : 'none';
-            });
+            var q = document.getElementById('searchInput').value.toLowerCase();
+            var rows = document.querySelectorAll('#resultsList .user-row');
+            for (var i = 0; i < rows.length; i++) {
+                var name = rows[i].querySelector('.username').textContent.toLowerCase();
+                rows[i].style.display = name.includes(q) ? '' : 'none';
+            }
         }
     </script>
 </body>
