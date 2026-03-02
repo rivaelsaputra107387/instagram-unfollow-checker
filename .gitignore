@@ -1,0 +1,10 @@
+# Data pribadi Instagram
+followers_1.json
+following.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
