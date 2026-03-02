@@ -21,6 +21,46 @@
             font-family: 'Inter', sans-serif;
             background: #0d1117;
             min-height: 100vh;
+            padding-top: 80px;
+            /* Offset for sticky navbar */
+        }
+
+        /* Navbar Styles */
+        .navbar-custom {
+            background: rgba(13, 17, 23, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand-custom {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .navbar-logo {
+            height: 40px;
+            width: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand-custom:hover .navbar-logo {
+            transform: scale(1.05);
+        }
+
+        .navbar-brand-text {
+            font-weight: 800;
+            font-size: 1.25rem;
+            background: var(--ig-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
         }
 
         .bg-glow {
@@ -314,6 +354,21 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-custom fixed-top">
+        <div class="container" style="max-width: 740px;">
+            <a class="navbar-brand-custom" href="/">
+                <img src="{{ url_for('static', filename='logo-r.png') }}" alt="Logo" class="navbar-logo">
+                <span class="navbar-brand-text">IG Tracker</span>
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <a href="https://github.com/rivaelsaputra107387/instagram-unfollow-checker" target="_blank"
+                    class="text-secondary hover-white transition-all">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
     <div class="bg-glow"></div>
     <div class="main-wrapper">
         <div class="container py-5" style="max-width: 740px;">
