@@ -1,121 +1,260 @@
-📊 Instagram Unfollow Checker
+<div align="center">
 
-A simple web-based analytics tool built with Python (Flask) to analyze exported JSON data from Instagram and identify accounts that do not follow back.
+<!-- HEADER BANNER -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Instagram%20Unfollowers%20Tracker&fontSize=40&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Lacak%20siapa%20yang%20tidak%20follow%20back%20kamu%20di%20Instagram&descAlignY=60&descSize=16" width="100%"/>
 
-This project is designed for learning backend development, JSON parsing, and web-based data processing using Flask.
+<br/>
 
-🚀 Features
+<!-- BADGES -->
+<p>
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Flask-3.x-000000?style=for-the-badge&logo=flask&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"/>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge"/>
+</p>
 
-Upload followers_1.json
+<p>
+  <img src="https://img.shields.io/github/stars/rivaelsaputra107387/instagram-unfollow-checker?style=social"/>
+  &nbsp;
+  <img src="https://img.shields.io/github/forks/rivaelsaputra107387/instagram-unfollow-checker?style=social"/>
+</p>
 
-Upload following.json
+<br/>
 
-Parse Instagram exported JSON data
+> **Aplikasi web ringan & privat untuk menganalisis data export Instagram** — cari tahu siapa saja yang tidak follow back, tanpa perlu login atau API key. 100% aman, semua diproses lokal.
 
-Compare followers and following
+<br/>
 
-Display:
+</div>
 
-Total Followers
+---
 
-Total Following
+## 📸 Preview
 
-Total Non-Followers
+<div align="center">
+<i>Screenshot aplikasi akan tampil di sini — tambahkan gambar demo kamu!</i>
 
-List of accounts that do not follow back
+<!-- Ganti dengan screenshot asli kamu -->
+<!-- <img src="./docs/preview.png" width="80%" style="border-radius: 12px;"/> -->
+</div>
 
-Simple and clean web interface
+---
 
-Error handling for invalid JSON files
+## ✨ Fitur Unggulan
 
-🛠 Tech Stack
+<table>
+<tr>
+<td width="50%">
 
-Python 3
+**📤 Upload & Analisis**
+Upload `followers_1.json` dan `following.json` dari data export resmi Instagram, lalu biarkan aplikasi bekerja secara otomatis.
 
-Flask
+**🔎 Deteksi Unfollowers**
+Algoritma perbandingan cepat untuk menemukan akun yang kamu follow tapi tidak follow back.
 
-Bootstrap (CDN)
+**📊 Statistik Lengkap**
+Lihat total followers, following, dan jumlah unfollowers sekaligus dalam satu tampilan.
 
-HTML5
+</td>
+<td width="50%">
 
-📂 Project Structure
+**🔗 Direct Profile Link**
+Klik nama username langsung menuju profil Instagram mereka — tanpa copy-paste manual.
+
+**🔍 Search & Filter**
+Cari username spesifik dari daftar unfollowers dengan fitur pencarian real-time.
+
+**🌙 Dark Mode UI**
+Tampilan modern bertema gelap yang terinspirasi dari estetika Instagram, responsif di semua perangkat.
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🛠️ Tech Stack
+
+| Teknologi | Fungsi |
+|:---------:|:-------|
+| ![Python](https://img.shields.io/badge/-Python_3-3776AB?style=flat-square&logo=python&logoColor=white) | Backend logic & data processing |
+| ![Flask](https://img.shields.io/badge/-Flask-000000?style=flat-square&logo=flask&logoColor=white) | Web framework ringan |
+| ![Bootstrap](https://img.shields.io/badge/-Bootstrap_5.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white) | UI framework & komponen |
+| ![Bootstrap Icons](https://img.shields.io/badge/-Bootstrap_Icons-7952B3?style=flat-square&logo=bootstrap&logoColor=white) | Ikon antarmuka |
+| ![HTML/CSS/JS](https://img.shields.io/badge/-HTML%2FCSS%2FJS-E34F26?style=flat-square&logo=html5&logoColor=white) | Frontend rendering |
+
+---
+
+## 📁 Struktur Project
+
+```
 instagram-unfollow-checker/
 │
-├── app.py
-├── requirements.txt
-├── Procfile (optional for deployment)
-├── templates/
-│   └── index.html
-└── static/
-⚙️ Installation & Setup
-1️⃣ Clone the repository
-git clone https://github.com/your-username/instagram-unfollow-checker.git
+├── 📄 app.py                 # Main Flask application & routing
+├── 📋 requirements.txt       # Python dependencies
+├── 🚫 .gitignore             # Git ignore rules
+│
+└── 📂 templates/
+    └── 🌐 index.html         # Halaman utama (UI dark mode)
+```
+
+---
+
+## 🚀 Instalasi & Cara Menjalankan
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/rivaelsaputra107387/instagram-unfollow-checker.git
 cd instagram-unfollow-checker
-2️⃣ Create virtual environment (recommended)
-python -m venv venv
+```
 
-Activate it:
+### 2. Install Dependencies
 
-Windows:
-
-venv\Scripts\activate
-
-Mac/Linux:
-
-source venv/bin/activate
-3️⃣ Install dependencies
+```bash
 pip install -r requirements.txt
-▶️ Run the Application
+```
+
+### 3. Jalankan Aplikasi
+
+```bash
 python app.py
+```
 
-Open your browser and visit:
+### 4. Buka di Browser
 
+```
 http://127.0.0.1:5000
-📥 How to Use
+```
 
-Go to your Instagram account settings.
+> 💡 **Tip:** Pastikan kamu menggunakan Python 3.7 atau lebih baru.
 
-Download your account data.
+---
 
-Extract the ZIP file.
+## 📥 Cara Mendapatkan Data Export Instagram
 
-Locate:
+Ikuti langkah-langkah berikut untuk mengunduh data dari akun Instagrammu:
 
-followers_1.json
+```
+1. Buka Instagram → ⚙️ Settings → Your Activity
+2. Pilih "Download Your Information"
+3. Pilih format: JSON
+4. Tunggu email dari Instagram berisi link download
+5. Extract file ZIP
+6. Cari di folder followers_and_following/:
+   ├── followers_1.json    ← file ini
+   └── following.json      ← dan ini
+7. Upload keduanya ke aplikasi ✅
+```
 
-following.json
+---
 
-Upload both files into the web app.
+## ⚙️ Cara Kerja
 
-Click Analyze.
+```mermaid
+flowchart LR
+    A[📤 Upload JSON Files] --> B[🔍 Parse & Extract Usernames]
+    B --> C[⚖️ Bandingkan Followers vs Following]
+    C --> D[📋 Tampilkan Daftar Unfollowers]
+```
 
-View the list of accounts that do not follow you back.
+| Tahap | Proses |
+|:-----:|:-------|
+| **Upload** | User mengupload `followers_1.json` dan `following.json` |
+| **Parsing** | Aplikasi mem-parsing JSON sesuai struktur export Instagram terbaru |
+| **Comparing** | Membandingkan set `following` dengan set `followers` |
+| **Result** | Menampilkan daftar akun yang di-follow tapi tidak follow back |
 
-⚠️ Privacy Notice
+---
 
-This application:
+## 🔑 Referensi Fungsi Utama
 
-Does NOT store user data
+<details>
+<summary><b><code>extract_usernames(data)</code></b> — Parsing followers_1.json</summary>
 
-Does NOT save uploaded files
+```python
+# Struktur: array of objects
+# Username diambil dari: string_list_data[0].value
 
-Processes data temporarily in memory only
+def extract_usernames(data):
+    usernames = set()
+    for item in data:
+        username = item["string_list_data"][0]["value"]
+        usernames.add(username)
+    return usernames
+```
 
-Is intended for personal and educational use
+</details>
 
-🌱 Future Improvements
+<details>
+<summary><b><code>extract_following_usernames(data)</code></b> — Parsing following.json</summary>
 
-Download results as CSV
+```python
+# Struktur: object dengan key "relationships_following"
+# Username diambil dari: title
 
-Add mutual followers detection
+def extract_following_usernames(data):
+    usernames = set()
+    for item in data["relationships_following"]:
+        username = item["title"]
+        usernames.add(username)
+    return usernames
+```
 
-Add dashboard statistics
+</details>
 
-Add user authentication
+---
 
-Deploy with custom domain
+## 🔒 Privasi & Keamanan
 
-👨‍💻 Author
+<div align="center">
 
-Rivael Saputra
-Informatics Student | Web Developer | Tech Enthusiast
+| ✅ Yang Terjadi | ❌ Yang TIDAK Terjadi |
+|:---|:---|
+| Data diproses di memory lokal | Data **tidak** dikirim ke server manapun |
+| File JSON dibaca sementara | File **tidak** disimpan permanen |
+| Proses 100% di mesinmu sendiri | **Tidak** ada database yang terlibat |
+| Hasil langsung tampil di browser | **Tidak** ada akun Instagram yang diakses |
+
+</div>
+
+> **Aplikasi ini sepenuhnya aman.** Tidak ada koneksi ke Instagram API, tidak ada penyimpanan data, dan tidak ada autentikasi yang diperlukan.
+
+---
+
+## 🤝 Contributing
+
+Kontribusi sangat diterima dan dihargai! Berikut cara berkontribusi:
+
+1. **Fork** repository ini
+2. **Buat branch** baru → `git checkout -b feature/nama-fitur`
+3. **Commit** perubahan → `git commit -m 'feat: menambahkan fitur baru'`
+4. **Push** ke branch → `git push origin feature/nama-fitur`
+5. **Buat Pull Request** dan jelaskan perubahannya
+
+Untuk perubahan besar, buka **Issue** terlebih dahulu untuk diskusi.
+
+---
+
+## 📄 Lisensi
+
+Didistribusikan di bawah lisensi **MIT**. Lihat [`LICENSE`](LICENSE) untuk informasi lebih lanjut.
+
+Bebas digunakan, dimodifikasi, dan didistribusikan — dengan tetap mencantumkan atribusi.
+
+---
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" width="100%"/>
+
+**Dibuat dengan ❤️ menggunakan Flask & Bootstrap**
+
+Jika project ini bermanfaat bagimu, pertimbangkan untuk memberikan ⭐ **Star** di repository ini!
+
+<br/>
+
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rivaelsaputra107387)
+
+</div>
